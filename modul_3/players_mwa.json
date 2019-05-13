@@ -1,0 +1,280 @@
+{
+	"teams": [
+
+		{
+			"teamname": "Dinamo Kiev fc",
+			"logo": "http://content.sportslogos.net/logos/140/4365/full/861_-dynamo_kyiv-primary-.gif",
+			"home": "Dynamo Stadium named after Valeriy Lobanovsky",
+			"players": [{
+				"name": "Denis Boyko"
+			}, {
+				"name": "Mykyta Burda"
+			}, {
+				"name": "Vitali Mykolenko"
+			}, {
+				"name": "Akhmed Alibekov"
+			}, {
+				"name": "Oleksandr Andrievsky"
+			}, {
+				"name": "Vitaliy Buyalskiy"
+			}, {
+				"name": "Denys Garmash"
+			}, {
+				"name": "Vladislav Kalitvintsev"
+			}, {
+				"name": "Mykyta Kravchenko"
+			}, {
+				"name": "Artem Besedin"
+			}]
+		},
+
+		{
+			"teamname": "Shactar Donetsk fc",
+			"logo": "http://content.sportslogos.net/logos/140/4373/full/904_-shakhtar_donetsk-primary-2007.gif",
+			"home": "National Sports Complex “Olympiyskiy”",
+			"players": [{
+				"name": "Andriy Pyatov"
+			}, {
+				"name": "Bogdan Butko"
+			}, {
+				"name": "Sergiy Krivtsov"
+			}, {
+				"name": "Maksym Malyshev"
+			}, {
+				"name": "Mykola Matvienko"
+			}, {
+				"name": "Sergiy Bolbat"
+			}, {
+				"name": "Oleg Danchenko"
+			}, {
+				"name": "Viktor Kovalenko"
+			}, {
+				"name": "Marlos"
+			}, {
+				"name": "Dentinho"
+			}]
+		},
+
+		{
+			"teamname": "Chornomorets Odesa fc",
+			"logo": "http://content.sportslogos.net/logos/140/4363/full/146_-chornomorets_odesa-primary-.gif",
+			"home": "Chornomorets",
+			"players": [{
+				"name": "Serhiy Litovchenko"
+			}, {
+				"name": "Ivan Trubochkin"
+			}, {
+				"name": "Dmytro Ryzhuk"
+			}, {
+				"name": "Dmytro Leonov"
+			}, {
+				"name": "Mykola Musolitin"
+			}, {
+				"name": "Oleksiy Savchenko"
+			}, {
+				"name": "Yevhen Smirnov"
+			}, {
+				"name": "Artem Chorniy"
+			}, {
+				"name": "Volodymyr Koval"
+			}, {
+				"name": "Mykyta Tatarkov"
+			}]
+		},
+
+
+		{
+			"teamname": "Metalist Kharkiv fc",
+			"logo": "http://content.sportslogos.net/logos/140/4370/full/197_-metalist_kharkiv-primary-.gif",
+			"home": "Metalist",
+			"players": [{
+				"name": "Danylo Kanevtsev"
+			}, {
+				"name": "Evgen Zubeyko"
+			}, {
+				"name": "Oleksandr Kaplienko"
+			}, {
+				"name": "Eduard Sobol"
+			}, {
+				"name": "Ivan Zotko"
+			}, {
+				"name": "Oleg Synytsya"
+			}, {
+				"name": "Ivan Bobko"
+			}, {
+				"name": "Maksym Tretyakov"
+			}, {
+				"name": "Sergiy Kuznetsov"
+			}, {
+				"name": "Ilya Kornev"
+			}]
+		},
+
+		{
+			"teamname": "Vorskla Poltava fc",
+			"logo": "http://content.sportslogos.net/logos/140/4376/full/856_-vorskla_poltava-primary-.gif",
+			"home": "Oleksiy Butovskyi Vorskla Stadium",
+			"players": [{
+				"name": "Dmytro Riznyk"
+			}, {
+				"name": "Artur"
+			}, {
+				"name": "Artem Bilyi"
+			}, {
+				"name": "Oleksandr Chizhov"
+			}, {
+				"name": "Ardin Dallku"
+			}, {
+				"name": "Volodimir Chesnakov"
+			}, {
+				"name": "Artem Gabelyuk"
+			}, {
+				"name": "Aleksandr Kobakhidze"
+			}, {
+				"name": "Yuriy Kolomoyets"
+			}, {
+				"name": "Yuri Kozyrenko"
+			}]
+		},
+
+		{
+			"teamname": "Karpaty Lviv fc",
+			"logo": "http://content.sportslogos.net/logos/140/4368/full/863_-karpaty_lviv-primary-.gif",
+			"home": "Arena Lviv",
+
+			"players": [{
+				"name": "Maksym Kuchynskyi"
+			}, {
+				"name": "Andriy Nesterov"
+			}, {
+				"name": "Nazar Verbnyi"
+			}, {
+				"name": "Papa Gueye"
+			}, {
+				"name": "Artem Fedetskyi"
+			}, {
+				"name": "Jorge Carrascal"
+			}, {
+				"name": "Oleh Holodyuk"
+			}, {
+				"name": "Francisco Di Franco"
+			}, {
+				"name": "Yhonatan Bedoya"
+			}, {
+				"name": "Oleksiy Hutsulyak"
+			}]
+		}
+
+	],
+
+	"games": [
+
+		{
+			"id": "01",
+			"teamhome": "Dinamo Kiev fc",
+			"teamguest": "Metalist Kharkiv fc",
+			"date": "9/01",
+			"time": "18:00",
+			"location": "Dynamo Stadium named after Valeriy Lobanovsky"
+},
+
+		{
+			"id": "02",
+			"teamhome": "Chornomorets Odesa fc",
+			"teamguest": "Shactar Donetsk fc",
+			"date": "9/01",
+			"time": "21:00",
+			"location": "Chornomorets"
+},
+
+		{
+			"id": "03",
+			"teamhome": "Vorskla Poltava fc",
+			"teamguest":"Karpaty Lviv fc",
+			"date": "9/08",
+			"time": "18:00",
+			"location": "Oleksiy Butovskyi Vorskla Stadium"
+},
+
+		{
+			"id": "04",
+			"teamhome": "Karpaty Lviv fc",
+			"teamguest":"Dinamo Kiev fc",
+			"date": "9/08",
+			"time": "21:00",
+			"location": "Arena Lviv"
+},
+
+		{
+			"id": "05",
+			"teamhome": "Shactar Donetsk fc",
+			"teamguest":"Metalist Kharkiv fc",
+			"date": "9/15",
+			"time": "18:00",
+			"location": "National Sports Complex “Olympiyskiy”"
+},
+
+		{
+			"id": "06",
+			"teamhome": "Chornomorets Odesa fc",
+			"teamguest":"Vorskla Poltava fc",
+			"date": "9/15",
+			"time": "21:00",
+			"location": "Chornomorets"
+},
+
+		{
+			"id": "07",
+			"teamhome": "Dinamo Kiev fc",
+			"teamguest":"Chornomorets Odesa fc",
+			"date": "9/22",
+			"time": "18:00",
+			"location": "Chornomorets"
+},
+
+		{
+			"id": "08",
+			"teamhome": "Shactar Donetsk fhome",
+			"teamguest":"Karpaty Lviv fc",
+			"date": "9/22",
+			"time": "21:00",
+			"location": "Arena Lviv"
+},
+
+		{
+			"id": "09",
+			"teamhome": "Metalist Kharkiv fc",
+			"teamguest":"Vorskla Poltava fc",
+			"date": "9/92",
+			"time": "18:00",
+			"location": "Oleksiy Butovskyi Vorskla Stadium"
+},
+
+		{
+			"id": "010",
+			"teamhome": "Shactar Donetsk fc",
+			"teamguest":"Vorskla Poltava fc",
+			"date": "9/29",
+			"time": "21:00",
+			"location": "Oleksiy Butovskyi Vorskla Stadium"
+},
+
+		{
+			"id": "011",
+			"teamhome": "Dinamo Kiev fc",
+			"teamguest":"Karpaty Lviv fc",
+			"date": "10/06",
+			"time": "18:00",
+			"location": "Arena Lviv"
+},
+
+		{
+			"id": "012",
+			"teamhome": "Chornomorets Odesa fc",
+			"teamguest":"Metalist Kharkiv fc",
+			"date": "10/06",
+			"time": "21:00",
+			"location": "Metalist"
+}
+]
+}

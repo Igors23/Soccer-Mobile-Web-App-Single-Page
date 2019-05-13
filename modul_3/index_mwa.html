@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<link rel="stylesheet" href="css/style_mwa.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+	<div id="app">
+		<v-app id="inspire">
+			<!---- toolbar ---->
+			<v-container>
+				<v-toolbar fixed>
+
+					<v-spacer></v-spacer>
+
+					<v-toolbar-items>
+						<v-btn icon class="hidden-xs-only">
+							<v-icon>arrow_back</v-icon>
+						</v-btn>
+
+						<v-btn href="" @click.prevent="page = 'chat', getPosts()" color="green accent-2" flat value="chat" icon>
+							<a href="#anchor">
+								<v-icon>chat</v-icon>
+							</a>
+						</v-btn>
+					</v-toolbar-items>
+				</v-toolbar>
+			</v-container>
+
+			<!---- divs ---->
+			<!----div game---->
+			<div id="game" v-if="page === 'game'">
+				<v-container>
+					<v-layout row dense>
+						<v-flex xs12 sm6 offset-sm3>
+							<v-card v-for="data in games">
+
+
+								<v-list two-line>
+									<v-list-tile href="" @click="matchSelect('gamedetail',data)">
+										<v-list-tile-action>
+											<v-icon color="indigo">info</v-icon>
+										</v-list-tile-action>
+
+										<v-list-tile-content>
+											<v-list-tile-title>{{data.teamhome}} vs {{data.teamguest}}</v-list-tile-title>
+											<v-list-tile-sub-title>{{data.date}}</v-list-tile-sub-title>
+										</v-list-tile-content>
+
+										<v-list-tile-action>
+											<v-icon>fa-futbol</v-icon>
+										</v-list-tile-action>
+									</v-list-tile>
+
+									<v-divider inset></v-divider>
+								</v-list>
+							</v-card>
+						</v-flex>
+					</v-layout>
+				</v-container>
+			</div>
+			<!----div game detail---->
+			<div id="gamedetail" v-if="page === 'gamedetail'">
+				<v-container>
+					<v-layout row>
+						<v-flex xs6 order-lg2>
+							<v-card style="margin=3%;" href="" @click.prevent="teamSelect('teamdetail',currentMatch.teamhome)" flat color="white">
+								<v-card-text class="black--text">{{currentMatch.teamhome}}</v-card-text>
+							</v-card>
+						</v-flex>
+						<p>VS</p>
+						<v-flex xs6>
+							<v-card style="margin=3%;" href="" @click.prevent="teamSelect('teamdetail',currentMatch.teamguest)" flat color="white">
+								<v-card-text class="black--text">{{currentMatch.teamguest}}</v-card-text>
+							</v-card>
+						</v-flex>
+					</v-layout>
+					<v-layout row>
+						<v-flex xs4 order-md2 order-xs1>
+							<v-card>
+								<v-avatar>
+									<img :src="teamhome.logo">
+								</v-avatar>
+							</v-card>
+						</v-flex>
+						<v-flex xs4 order-md3 order-xs2>
+							<v-card dark tile flat color="green">
+								<v-card-text>{{currentMatch.date}}
+									{{currentMatch.time}}
+									{{currentMatch.location}}</v-card-text>
+							</v-card>
+						</v-flex>
+						<v-flex xs4 order-md1 order-xs3>
+							<v-card>
+								<v-avatar>
+									<img :src="teamguest.logo">
+								</v-avatar>
+							</v-card>
+						</v-flex>
+					</v-layout>
+					<v-layout row wrap>
+
+					</v-layout>
+				</v-container>
+			</div>
+			<!----div team detail---->
+			<div id="teamdetail" v-if="page === 'teamdetail'">
+				<v-container>
+					<v-layout>
+						<v-flex xs22 sm6 offset-sm3>
+							<v-card style="margin-top=13%;" color="">
+								<v-img class="black--text" height="220px" src="">
+									<v-container fill-height fluid>
+										<v-layout fill-height>
+											<v-flex xs12 align-top flexbox>
+												<span class="headline">
+													<p class="text-md-center">{{currenTeam.teamname}}</p>
+
+
+													<div>
+														<p>
+															<v-img :src="currenTeam.logo" aspect-ratio="2.5" contain></v-img>
+														</p>
+													</div>
+
+
+												</span>
+											</v-flex>
+										</v-layout>
+									</v-container>
+								</v-img>
+								<v-card-title>
+									<div>
+										<span class="grey--text">
+											Stadium
+										</span><br>
+										<span>{{currenTeam.home}}</span><br>
+										<span class="grey--text">
+											Players
+										</span>
+										<p v-for="player in currenTeam.players">{{player.name}}</p>
+									</div>
+								</v-card-title>
+							</v-card>
+						</v-flex>
+					</v-layout>
+				</v-container>
+
+			</div>
+			<!----div login---->
+			<div class="headline text-xs-center pa-5" id="login" v-if="page === 'login'">
+				<v-btn @click="login" large color="success">
+					plz login
+				</v-btn>
+			</div>
+			<!----div chat---->
+			<div id="chat" v-if="page === 'chat'">
+				<div id="container" class="chat">
+					<p v-for="message in txtMessages">
+						{{message.name}} - {{message.content}}
+
+					</p>
+				</div>
+				<v-form onSubmit="return false">
+					<v-container>
+						<v-layout row wrap>
+							<v-flex xs12>
+								<v-text-field v-model="textToSend" outline clearable label="Message" type="text" />
+							</v-flex>
+						</v-layout>
+					</v-container>
+				</v-form>
+
+				<v-btn class="style-none" v-on:click="writeNewPost" large color="success">
+					<a href="#anchor">
+						send</a>
+				</v-btn>
+			</div>
+
+			<!---- maps---->
+			<div id="loc" v-if="page === 'loc'" class="tablegameloc">
+				<table class="tablegameloc">
+					<thead>
+						<tr>
+							<th class="gamelochead">
+								Game Locations
+							</th>
+							<th>
+
+							</th>
+						</tr>
+					</thead>
+
+					<tr>
+						<td>Dynamo Stadium named after Valeriy Lobanovsky</td>
+						<td>Mykhaila Hrushevskoho St, 3, Kyiv, Ukraine, 02000 </td>
+						<td>
+							<div class="mapag">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.5006614801828!2d30.532912015731295!3d50.450400979475305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce4d637de063%3A0x9b54fb10552f8727!2sDynamo+Stadium+named+after+Valeriy+Lobanovsky!5e0!3m2!1sen!2ses!4v1548263127414" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+							</div>
+						</td>
+
+
+					</tr>
+					<tr>
+						<td>National Sports Complex “Olympiyskiy</td>
+						<td>Velyka Vasylkivska St, 55, Kyiv, Ukraine, 02000</td>
+						<td>
+							<div class="mapgr">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.413091231203!2d30.519667315255802!3d50.43340577947301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf02b2b3a94f%3A0x783fe299564db0c2!2sNational+Sports+Complex+%E2%80%9COlympiyskiy%E2%80%9D!5e0!3m2!1sen!2ses!4v1548263368926" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Chornomorets</td>
+						<td>Черное море, Odesa, Odessa Oblast, Ukraine, 65000</td>
+						<td>
+							<div class="mapho">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2747.3851972526813!2d30.753177215078292!3d46.480684579126056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c63112917cdc3f%3A0x73e4cf2895a456cf!2sChornomorets!5e0!3m2!1sen!2ses!4v1548263564798" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Metalist</td>
+						<td>Plekhanivs'ka St, 65, Kharkiv, Kharkivs'ka oblast, Ukraine, 61000</td>
+						<td>
+							<div class="mapma">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.625702128323!2d36.259359215235!3d49.98087757941333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a084fb705883%3A0x1d75da3fa9345f06!2sMetalist!5e0!3m2!1sen!2ses!4v1548263711977" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td>Oleksiy Butovskyi Vorskla Stadium</td>
+						<td>площа Незалежності, 16, Poltava, Poltavs'ka oblast, Ukraine, 36000</td>
+						<td>
+							<div class="mapno">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2586.157266198564!2d34.54708181521729!3d49.594783679366444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d825f9e8b297d5%3A0x367d9105677af4b9!2sOleksiy+Butovskyi+Vorskla+Stadium!5e0!3m2!1sen!2ses!4v1548264009088" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Arena Lviv</td>
+						<td>Stryiska St, 199, L'viv, L'vivs'ka oblast, Ukraine, 79000</td>
+						<td>
+							<div class="mapso">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2576.5959220946856!2d24.02551641522555!3d49.77485747938788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae7c45ad648ef%3A0xf15582fcd2b48f5b!2sArena+Lviv!5e0!3m2!1sen!2ses!4v1548264090412" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
+						</td>
+					</tr>
+
+
+
+				</table>
+			</div>
+			<!----buttom navbar---->
+			<v-container id="anchor">
+				<v-card height="10px" flat>
+
+					<v-bottom-nav :active.sync="bottomNav" :value="true" fixed color="">
+						<v-btn href="" @click.prevent="page = 'login'" color="green" flat value="login">
+							<span>Log in</span>
+							<v-icon>fa-sign-in-alt</v-icon>
+						</v-btn>
+
+						<v-btn href="" @click.prevent="page = 'game'" color="red" flat value="home">
+							<span>Home</span>
+							<v-icon>fa-home</v-icon>
+						</v-btn>
+
+						<v-btn href="" @click.prevent="page = 'loc'" color="blue" flat value="locations">
+							<span>Locations</span>
+							<v-icon>fa-map-marked-alt</v-icon>
+						</v-btn>
+					</v-bottom-nav>
+				</v-card>
+			</v-container>
+		</v-app>
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyCZ1ed1HkwxuQne2BZX4fnBpsg42iqu05k",
+			authDomain: "mwa-matches.firebaseapp.com",
+			databaseURL: "https://mwa-matches.firebaseio.com",
+			projectId: "mwa-matches",
+			storageBucket: "mwa-matches.appspot.com",
+			messagingSenderId: "177090971368"
+		};
+		firebase.initializeApp(config);
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+	<script src="vue_mwa.js"></script>
+
+</body>
+</html>

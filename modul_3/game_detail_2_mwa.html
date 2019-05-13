@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+	<body>
+	<div id="app">
+  <v-app id="inspire">
+   
+    <v-toolbar>
+      <v-spacer></v-spacer>
+  
+      <v-toolbar-items>
+        <v-btn
+          color="green accent-2"
+          flat
+          value="chat" icon>
+          <v-icon>chat</v-icon>
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <!---- game detail 2 card---->
+    
+        <div id="gamedetail2">
+    	<v-layout>
+      <v-flex
+        xs12
+        sm6
+        offset-sm3
+      >
+        <v-card>
+          <v-img
+            class="black--text"
+            height="350px"
+            src="http://www.fcdynamo.kiev.ua/content/news/old/news_10484.jpg"
+          >
+            <v-container
+              fill-height
+              fluid
+            >
+              <v-layout fill-height>
+                <v-flex
+                  xs12
+                  align-end
+                  flexbox
+                >
+                  <span class="headline">
+                    Fuckin U1 Team
+                  </span>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-img>
+          <v-card-title>
+            <div>
+              <span class="grey--text">
+                Team Info
+              </span><br>
+              <span>This team is shit</span><br>
+              <span>it sucks</span>
+            </div>
+          </v-card-title>
+          <v-card-actions>
+            <v-btn
+              flat
+              color="orange"
+            >
+              Share
+            </v-btn>
+            <v-btn
+              flat
+              color="orange"
+            >
+              Bet
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
+
+    </div>
+    
+   <!---- bottum navbar---->
+    <v-card height="200px" flat>
+      <div class="headline text-xs-center pa-5">
+        Active: {{ bottomNav }}
+      </div>
+      <v-bottom-nav
+        :active.sync="bottomNav"
+        :value="true"
+        fixed
+        shift
+        color="transparent"
+      >
+        <v-btn
+          color="red"
+          flat
+          value="login"
+        >
+          <span>Log in</span>
+          <v-icon>fa-sign-in-alt</v-icon>
+        </v-btn>
+  
+        <v-btn
+          color="yellow"
+          flat
+          value="locations"
+        >
+          <span>Locations</span>
+          <v-icon>fa-map-marked-alt</v-icon>
+        </v-btn>
+  
+        <v-btn
+          color="green"
+          flat
+          value="home"
+        >
+          <span>Home</span>
+          <v-icon>fa-home</v-icon>
+        </v-btn>
+        
+        <v-btn
+          color="blue"
+          flat
+          value="teams"
+        >
+          <span>Teams</span>
+          <v-icon>fa-futbol</v-icon>
+        </v-btn>
+        
+        <v-btn
+          color="orange lighten-3"
+          flat
+          value="schedule"
+        >
+          <span>Schedule</span>
+          <v-icon>fa-calendar-alt</v-icon>
+        </v-btn>
+        
+      </v-bottom-nav>
+    </v-card>
+  </v-app>
+</div>
+	
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+  <script src="vue_mwa.js"></script>
+  
+	</body>
+</html>
